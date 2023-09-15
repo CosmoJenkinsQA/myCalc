@@ -2,11 +2,10 @@ package AllOperations;
 
 public abstract class Operation {
 
-    private final String name;
+
     private final char operatorSymbol;
 
-    public Operation(String name, char operatorSymbol) {
-        this.name = name;
+    public Operation(char operatorSymbol) {
         this.operatorSymbol = operatorSymbol;
     }
 

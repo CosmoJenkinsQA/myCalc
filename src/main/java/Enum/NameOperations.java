@@ -24,6 +24,6 @@ public enum NameOperations {
             if (value.valueInsideEnum().getOperatorSymbol() == symbol)
                 return value;
         }
-        throw new IllegalArgumentException("Uncorrect symbol " + symbol);
+        throw new IllegalArgumentException("Некорректный символ " + symbol);
     }
 }

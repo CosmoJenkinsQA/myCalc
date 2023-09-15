@@ -1,18 +1,15 @@
 package AllOperations;
 
 public class Subtraction extends Operation {
-    long res;
+    int res;
 
     public Subtraction() {
-        super("VICHITANIE", '-');
+        super('-');
     }
 
     @Override
-    public int doOperation(int first, int second) throws Exception {
+    public int doOperation(int first, int second){
         res = Math.subtractExact(first, second);
-        if (res > Integer.MAX_VALUE || res < Integer.MIN_VALUE) {
-            throw new Exception("Too long result for int!");
-        }
-        return (int) res;
+        return res;
     }
 }

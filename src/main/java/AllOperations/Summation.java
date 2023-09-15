@@ -1,18 +1,15 @@
 package AllOperations;
 
 public class Summation extends Operation {
-    long res;
+    int res;
 
     public Summation() {
-        super("SLOJENIE", '+');
+        super('+');
     }
 
     @Override
-    public int doOperation(int first, int second) throws Exception {
-        res = Math.addExact(first, second);
-        if (res > Integer.MAX_VALUE || res < Integer.MIN_VALUE) {
-            throw new Exception("Too long result for int!");
-        }
-        return (int) res;
+    public int doOperation(int first, int second){
+        res = first + second;
+        return res;
     }
 }

@@ -12,7 +12,7 @@ public class Calculator {
         System.out.print("Enter second number: ");
         int second = qwe.secondNumber();
         System.out.print("Choose operation: ");
-        Operation operationn = qwe.readOperation();
-        return "Result is: " + operationn.doOperation(first, second);
+        Operation operation = qwe.readOperation();
+        return "Result is: " + operation.doOperation(first, second);
     }
 }
