@@ -8,9 +8,9 @@ public class Calculator {
 
     public String run() throws Exception {
         System.out.print("Enter first number: ");
-        int first = qwe.firstNumber();
+        double first = qwe.firstNumber();
         System.out.print("Enter second number: ");
-        int second = qwe.secondNumber();
+        double second = qwe.secondNumber();
         System.out.print("Choose operation: ");
         Operation operation = qwe.readOperation();
         return "Result is: " + operation.doOperation(first, second);

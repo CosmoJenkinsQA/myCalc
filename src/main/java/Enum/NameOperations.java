@@ -18,7 +18,6 @@ public enum NameOperations {
         return operation;
     }
 
-
     public static NameOperations logic(char symbol) {
         for (NameOperations value : values()) {
             if (value.valueInsideEnum().getOperatorSymbol() == symbol)

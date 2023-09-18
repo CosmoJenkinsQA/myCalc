@@ -1,15 +1,20 @@
 package AllOperations;
 
 public class Summation extends Operation {
-    int res;
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    double res;
 
     public Summation() {
         super('+');
     }
 
     @Override
-    public int doOperation(int first, int second){
-        res = first + second;
+    public double doOperation(double first, double second) throws Exception{
+        res = Double.sum(first,second);
+        if (res > 2147483647 || res < -2147483647) {
+            throw new Exception(ANSI_RED + "Число выходит за границу диапазона (-2147483647; 2147483647)!" + ANSI_RESET);
+        }
         return res;
     }
 }

@@ -1,15 +1,20 @@
 package AllOperations;
 
 public class Subtraction extends Operation {
-    int res;
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    double res;
 
     public Subtraction() {
         super('-');
     }
 
     @Override
-    public int doOperation(int first, int second){
-        res = Math.subtractExact(first, second);
+    public double doOperation(double first, double second) throws Exception{
+        res = first - second;
+        if (res > 2147483647 || res < -2147483647) {
+            throw new Exception(ANSI_RED + "Число выходит за границу диапазона (-2147483647; 2147483647)!" + ANSI_RESET);
+        }
         return res;
     }
 }
