@@ -8,6 +8,12 @@ public class Multiplication extends Operation {
 
     @Override
     public <T extends Number>  double doOperation(T first, T second) throws ArithmeticException{
-        return first.doubleValue()/ second.doubleValue();
+        if ((first.doubleValue() * second.doubleValue()) > 1.7e+308 ||
+                (first.doubleValue() * second.doubleValue()) < -1.7e+308 ||
+                    (first.doubleValue() * second.doubleValue()) == 1.7e+308 ||
+                        (first.doubleValue() * second.doubleValue()) == -1.7e+308) {
+            throw new ArithmeticException(ANSI_RED + "Превышена граница допустимых значений" + ANSI_RESET);
+        }
+        return first.doubleValue() * second.doubleValue();
     }
 }

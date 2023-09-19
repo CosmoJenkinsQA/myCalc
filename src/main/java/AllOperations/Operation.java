@@ -13,5 +13,5 @@ public abstract class Operation {
         return operatorSymbol;
     }
 
-    public abstract <T extends Number> double doOperation(T first, T second) throws Exception;
+    public abstract <T extends Number> double doOperation(T first, T second) throws ArithmeticException;
 }
