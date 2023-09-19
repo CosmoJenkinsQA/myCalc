@@ -26,7 +26,7 @@ class CalcTest {
     @CsvSource({"5, 3, 2", "15, 9, 6", "210, 110, 100"})
     public void subtrac(int a, int b, int expectedResult) {
         Operation sub = new Subtraction();
-        int result = 0;
+        int result;
         try {
             result = (int) sub.doOperation(a, b);
         } catch (Exception e) {
