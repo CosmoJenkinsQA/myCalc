@@ -2,7 +2,10 @@ package Interface;
 
 import AllOperations.Operation;
 import Enum.NameOperations;
+
 import java.util.Scanner;
+
+import Enum.Answer;
 
 public class ConsoleReader implements InterfaceReader {
 
@@ -16,9 +19,9 @@ public class ConsoleReader implements InterfaceReader {
         try {
             return scanner.nextDouble();
         } catch (Exception e) {
-                System.out.println(ANSI_RED + "Это не число: " + ANSI_RESET + e.getMessage());
-                e.printStackTrace(System.out);
-            while(true){
+            System.out.println(ANSI_RED + "Это не число: " + ANSI_RESET + e.getMessage());
+            e.printStackTrace(System.out);
+            while (true) {
                 String input = scanner.next();
                 try {
                     return Double.parseDouble(input);
@@ -43,6 +46,7 @@ public class ConsoleReader implements InterfaceReader {
         }
         return scanner.nextDouble();
     }
+
 
     @Override
     public Operation readOperation() {

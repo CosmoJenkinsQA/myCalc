@@ -6,6 +6,6 @@ import org.junit.platform.suite.api.Suite;
 
 @Suite
 @SelectPackages("AllOperations")
-@IncludeTags("limits")
+@IncludeTags("BoundaryValues")
 public class Suites {
 }

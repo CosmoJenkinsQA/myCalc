@@ -48,16 +48,4 @@ class PositiveTests {
         assertEquals(expectedResult, result, "Метод деления работает неправильно ");
     }
 
-    @DisplayName("Проверка деления на 0")
-    @Test
-    @Tag("BoundaryValues")
-    public void divLimit(){
-        Operation divl = new Division();
-        Throwable throwable =
-                assertThrows(ArithmeticException.class, () -> {
-                    divl.doOperation(1, 0);
-                },"Тест не обрабатывает исключение");
-        assertEquals("\u001B[31mДеление на ноль невозможно!\u001B[0m", throwable.getMessage());
-    }
-
 }

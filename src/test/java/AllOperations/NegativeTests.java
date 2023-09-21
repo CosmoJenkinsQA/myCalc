@@ -33,18 +33,6 @@ class NegativeTests {
         assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
     }
 
-    @DisplayName("Проверка вычитания на лимит min.double ")
-    @Test
-    @Tag("Limits")
-    public void subLimitMinus(){
-        Operation subl = new Subtraction();
-        Throwable throwable =
-                assertThrows(ArithmeticException.class, () -> {
-                    subl.doOperation(-1.7e+308, 0.1);
-                }, "Тест не выбрасывает исключение");
-        assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
-    }
-
     @DisplayName("Проверка вычитания на лимит max.double")
     @Test
     @Tag("Limits")
@@ -53,6 +41,18 @@ class NegativeTests {
         Throwable throwable =
                 assertThrows(ArithmeticException.class, () -> {
                     subl.doOperation(1.7e+308, -10);
+                }, "Тест не выбрасывает исключение");
+        assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
+    }
+
+    @DisplayName("Проверка вычитания на лимит min.double ")
+    @Test
+    @Tag("Limits")
+    public void subLimitMinus(){
+        Operation subl = new Subtraction();
+        Throwable throwable =
+                assertThrows(ArithmeticException.class, () -> {
+                    subl.doOperation(-1.7e+308, 0.1);
                 }, "Тест не выбрасывает исключение");
         assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
     }
