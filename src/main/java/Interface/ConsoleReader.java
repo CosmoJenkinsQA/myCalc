@@ -2,10 +2,8 @@ package Interface;
 
 import AllOperations.Operation;
 import Enum.NameOperations;
-
 import java.util.Scanner;
 
-import Enum.Answer;
 
 public class ConsoleReader implements InterfaceReader {
 
@@ -47,6 +45,18 @@ public class ConsoleReader implements InterfaceReader {
         return scanner.nextDouble();
     }
 
+    // !!!! НЕРЕАЛИЗОВАННАЯ ФИЧА !!!!
+//    public void answerOf() {
+//        char c = scanner.next().charAt(0);
+//        for (Answer value : Answer.values()) {
+//            if (value.getValue() == c) {
+//                switch (value) {
+//                    case YES -> System.out.println("Введите следующее ариф. действие: ");
+//                    case NO  -> System.out.print("Результат:");
+//                }
+//            }
+//        }
+//    }
 
     @Override
     public Operation readOperation() {

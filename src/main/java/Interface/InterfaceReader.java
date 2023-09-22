@@ -1,7 +1,6 @@
 package Interface;
 
 import AllOperations.Operation;
-import Enum.Answer;
 
 public interface InterfaceReader {
 
@@ -10,5 +9,7 @@ public interface InterfaceReader {
     double secondNumber();
 
     Operation readOperation();
+
+//    void answerOf();
 
 }
