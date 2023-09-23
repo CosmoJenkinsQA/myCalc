@@ -9,10 +9,10 @@ public class Calculator {
     public String run(){
 
         System.out.print("Enter first number: ");
-        double first = qwe.firstNumber();
+        Number first = qwe.firstNumber();
 
         System.out.print("Enter second number: ");
-        double second = qwe.secondNumber();
+        Number second = qwe.secondNumber();
 
         System.out.print("Choose operation: ");
         Operation operation = qwe.readOperation();

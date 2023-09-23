@@ -2,6 +2,7 @@ package Interface;
 
 import AllOperations.Operation;
 import Enum.NameOperations;
+
 import java.util.Scanner;
 
 
@@ -12,37 +13,45 @@ public class ConsoleReader implements InterfaceReader {
     public static final String ANSI_RED = "\u001B[31m";
     Scanner scanner = new Scanner(System.in);
 
-    @Override
-    public double firstNumber() {
-        try {
-            return scanner.nextDouble();
-        } catch (Exception e) {
-            System.out.println(ANSI_RED + "Это не число: " + ANSI_RESET + e.getMessage());
-            e.printStackTrace(System.out);
-            while (true) {
-                String input = scanner.next();
-                try {
-                    return Double.parseDouble(input);
-                } catch (NumberFormatException ne) {
-                    System.out.print(ANSI_BLUE + "Введен некорректный символ, повторите попытку: " + ANSI_RESET);
-                }
+    public Number firstNumber() {
+        Number num = getNumber();
+        if (num != null) return num;
+        else {
+            System.out.print(ANSI_RED + "Это не число: \"" + scanner.next() + "\"" + ANSI_RESET + " Повторите попытку: ");
+            Number num2 = getNumber();
+            while (num2 == null) {
+                System.out.print(ANSI_BLUE + "Введен некорректный символ, повторите попытку: " + ANSI_RESET);
+                scanner.next();
+                num2 = getNumber();
+                if (num2 != null) return num2;
             }
+            return num2;
         }
     }
 
     @Override
-    public double secondNumber() {
-        try {
-            return scanner.nextDouble();
-        } catch (Exception e) {
-            System.out.println(ANSI_RED + "Это не число: " + ANSI_RESET + e.getMessage());
-            e.printStackTrace(System.out);
-            while (!scanner.hasNextDouble()) {
+    public Number secondNumber() {
+        Number num = getNumber();
+        if (num != null) return num;
+        else {
+            System.out.print(ANSI_RED + "Это не число: \"" + scanner.next() + "\"" + ANSI_RESET + " Повторите попытку: ");
+            Number num2 = getNumber();
+            while (num2 == null) {
                 System.out.print(ANSI_BLUE + "Введен некорректный символ, повторите попытку: " + ANSI_RESET);
                 scanner.next();
+                num2 = getNumber();
+                if (num2 != null) return num2;
             }
+            return num2;
         }
-        return scanner.nextDouble();
+    }
+
+    private Number getNumber() {
+        if (scanner.hasNextInt()) {
+            return scanner.nextInt();
+        } else if (scanner.hasNextDouble()) {
+            return scanner.nextDouble();
+        } else return null;
     }
 
     // !!!! НЕРЕАЛИЗОВАННАЯ ФИЧА !!!!

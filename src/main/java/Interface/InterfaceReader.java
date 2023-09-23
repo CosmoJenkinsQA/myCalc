@@ -4,9 +4,9 @@ import AllOperations.Operation;
 
 public interface InterfaceReader {
 
-    double firstNumber();
+    Number firstNumber();
 
-    double secondNumber();
+    Number secondNumber();
 
     Operation readOperation();
 

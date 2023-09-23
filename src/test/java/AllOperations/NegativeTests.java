@@ -12,24 +12,24 @@ class NegativeTests {
     @DisplayName("Проверка суммирования на лимит max.double")
     @Test
     @Tag("Limits")
-    public void summLimitPlus() throws ArithmeticException{
-        Operation suml = new Summation();
+    public void summLimitPlus(){
+        Operation sum = new Summation();
         Throwable throwable =
                 assertThrows(ArithmeticException.class, () -> {
-                    suml.doOperation(1.7e+308, 1);
-                });
+                    sum.doOperation(1.7e+308, 10);
+                }, "Тест не выбрасывает исключение");
         assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
     }
 
     @DisplayName("Проверка суммирования на лимит min.double")
     @Test
     @Tag("Limits")
-    public void summLimitMinus() throws ArithmeticException{
+    public void summLimitMinus(){
         Operation suml = new Summation();
         Throwable throwable =
                 assertThrows(ArithmeticException.class, () -> {
                     suml.doOperation(-1.7e+308, -1);
-                });
+                }, "Тест не выбрасывает исключение");
         assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
     }
 
@@ -52,7 +52,7 @@ class NegativeTests {
         Operation subl = new Subtraction();
         Throwable throwable =
                 assertThrows(ArithmeticException.class, () -> {
-                    subl.doOperation(-1.7e+308, 0.1);
+                    subl.doOperation(-1.7e+308, -100000);
                 }, "Тест не выбрасывает исключение");
         assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
     }
@@ -67,7 +67,6 @@ class NegativeTests {
                     multl.doOperation(1.7e+308, 10);
                 }, "Тест не выбрасывает исключение");
         assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
-
     }
     @DisplayName("Проверка умножения на лимит min.double ")
     @Test
