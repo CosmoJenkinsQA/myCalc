@@ -16,7 +16,7 @@ class NegativeTests {
         Operation sum = new Summation();
         Throwable throwable =
                 assertThrows(ArithmeticException.class, () -> {
-                    sum.doOperation(1.7e+308, 10);
+                    sum.doOperation(Double.MAX_VALUE, 1);
                 }, "Тест не выбрасывает исключение");
         assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
     }
@@ -28,7 +28,7 @@ class NegativeTests {
         Operation suml = new Summation();
         Throwable throwable =
                 assertThrows(ArithmeticException.class, () -> {
-                    suml.doOperation(-1.7e+308, -1);
+                    suml.doOperation(-2147483648, -1);
                 }, "Тест не выбрасывает исключение");
         assertEquals("\u001B[31mПревышена граница допустимых значений\u001B[0m", throwable.getMessage());
     }
