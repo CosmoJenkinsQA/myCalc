@@ -1,8 +1,9 @@
 package AllOperations;
 
-public abstract class Operation {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
+import Interface.Const;
+
+public abstract class Operation implements Const {
+
     private final char operatorSymbol;
 
     public Operation(char operatorSymbol) {

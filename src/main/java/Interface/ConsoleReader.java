@@ -2,15 +2,9 @@ package Interface;
 
 import AllOperations.Operation;
 import Enum.NameOperations;
-
 import java.util.Scanner;
 
-
-public class ConsoleReader implements InterfaceReader {
-
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_RED = "\u001B[31m";
+public class ConsoleReader implements InterfaceReader, Const {
     Scanner scanner = new Scanner(System.in);
 
     public Number firstNumber() {
