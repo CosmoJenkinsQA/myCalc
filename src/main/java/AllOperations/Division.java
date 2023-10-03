@@ -21,8 +21,8 @@ public class Division extends Operation {
         }
         return first.doubleValue() / second.doubleValue();
     }
-
-    public static String expr2RPN(String expr){ // expr - строка, которую вы вводим с консоли, т.е. само выражение
+/********************RPN****************************/
+    public static String expr2RPN(String expr){ /* expr - строка, которую вы вводим с консоли, т.е. само выражение */
         String current = ""; //то, куда мы кладем числа, а в последствии все из stack
         Stack<Character> stack = new Stack<>();
         int priority;
