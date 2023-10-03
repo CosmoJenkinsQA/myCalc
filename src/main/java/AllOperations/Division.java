@@ -31,7 +31,7 @@ public class Division extends Operation {
             priority = getPriority(expr.charAt(i)); //кидаем в getPriority по символьно со строки
             if (priority == 0) current += expr.charAt(i); // посылаем в getPriority символ и если метод вернет 0 (число т.е. ), то пихаем его в current и дальше аналогично
             if (priority == 1) stack.push(expr.charAt(i)); // expr.charAt(i) - конкретный символ со строки
-            if (priority > 1){
+            if (priority >= 1){
                 current += ' '; // ??? почему имеено сюда. Это действие разделение между числами, чтобы не было слитной строки
 
                 while (!stack.empty()){
@@ -41,7 +41,13 @@ public class Division extends Operation {
                 }
                 stack.push(expr.charAt(i));
             }
+            if (priority == -1){
+                current += ' ';
+                while (getPriority(stack.peek()) != 1 ) current += stack.pop();
+                stack.pop();
+            }
         }
+        while (!stack.empty()) current+=stack.pop();
         return current;
     }
 
