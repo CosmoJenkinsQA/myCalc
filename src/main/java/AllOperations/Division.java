@@ -21,4 +21,5 @@ public class Division extends Operation {
         }
         return first.doubleValue() / second.doubleValue();
     }
+
 }

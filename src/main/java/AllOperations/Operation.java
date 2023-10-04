@@ -18,6 +18,12 @@ public abstract class Operation implements Const {
 
     public abstract <T extends Number> double doOperation(T first, T second) throws ArithmeticException;
 
+
+
+
+
+
+
     /********************RPN****************************/
     public static String expr2RPN(String expr) { /* expr - строка, которую вы вводим с консоли, т.е. само выражение */
         String current = ""; //то, куда мы кладем числа, а в последствии все из stack
@@ -25,9 +31,10 @@ public abstract class Operation implements Const {
         int priority;
 
         for (int i = 0; i < expr.length(); i++) {
+
             priority = getPriority(expr.charAt(i)); //кидаем в getPriority по символьно со строки
-            if (priority == 0)
-                current += expr.charAt(i); // посылаем в getPriority символ и если метод вернет 0 (число т.е. ), то пихаем его в current и дальше аналогично
+
+            if (priority == 0) current += expr.charAt(i); // посылаем в getPriority символ и если метод вернет 0 (число т.е. ), то пихаем его в current и дальше аналогично
             if (priority == 1) stack.push(expr.charAt(i)); // expr.charAt(i) - конкретный символ со строки
             if (priority >= 1) {
                 current += ' '; // ??? почему имеено сюда. Это действие разделение между числами, чтобы не было слитной строки
