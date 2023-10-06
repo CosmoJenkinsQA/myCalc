@@ -25,6 +25,7 @@ public abstract class Operation implements Const {
 
 
     /********************RPN****************************/
+    /***будущий dooperation метод***/
     public static String expr2RPN(String expr) { /* expr - строка, которую вы вводим с консоли, т.е. само выражение */
         String current = ""; //то, куда мы кладем числа, а в последствии все из stack
         Stack<Character> stack = new Stack<>();
@@ -56,6 +57,11 @@ public abstract class Operation implements Const {
         return current;
     }
 
+
+
+
+
+
     public static double rpn2Answer(String rpn) {
         String operand = new String();
         Stack<Double> stack2 = new Stack<>();
@@ -83,6 +89,9 @@ public abstract class Operation implements Const {
 
         return stack2.pop();
     }
+
+
+
 
     public static int getPriority(char token) {
         if (token == '*' || token == '/') return 3;
