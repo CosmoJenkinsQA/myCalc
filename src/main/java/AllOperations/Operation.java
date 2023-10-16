@@ -26,6 +26,7 @@ public abstract class Operation implements Const {
 
     /********************RPN****************************/
     /***будущий dooperation метод***/
+    /********************Добавить доп алгоритм****************************/
     public static String expr2RPN(String expr) { /* expr - строка, которую вы вводим с консоли, т.е. само выражение */
         String current = ""; //то, куда мы кладем числа, а в последствии все из stack
         Stack<Character> stack = new Stack<>();
